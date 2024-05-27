@@ -1,0 +1,13 @@
+.favourite {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
+
+.content {
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 25px 3% 25px 3%;
+}

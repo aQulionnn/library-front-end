@@ -1,0 +1,39 @@
+:root {
+
+}
+
+.sidebar {
+  width: 300px;
+  height: 100%;
+  display: grid;
+  align-content: center;
+  gap: 15px;
+  padding: 25px 25px;
+  background-color: var(--white);
+  overflow: hidden;
+}
+
+.sidebar > div {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  color: var(--grey);
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.sidebar > div:hover:not(:last-child) {
+  background-color: var(--yellow);
+  color: var(--white);
+}
+
+.logout > :not(p) {
+  transform: scaleX(-1);
+}
+
+.logout:hover {
+  background-color: #FF1B09;
+  color: var(--white)
+}

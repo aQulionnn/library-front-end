@@ -1,0 +1,21 @@
+.library {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+
+.content {
+  display: flex;
+  padding: 25px;
+}
+
+.content div {
+  aspect-ratio: 16/9;
+  height: 160px;
+  text-align: center;
+}
+
+.content div img {
+  height: 100%;
+  width: 100%;
+}

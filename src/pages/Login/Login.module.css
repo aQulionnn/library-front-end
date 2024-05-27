@@ -1,0 +1,101 @@
+.login {
+  width: 1150px;
+  height: 625px;
+  display: flex;
+  box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.1);
+  border-radius: 25px;
+  overflow: hidden;
+  background-color: var(--white);
+}
+
+.login > div {
+  width: 50%;
+  height: 100%;
+}
+
+.left-section, .right-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left-section form, .right-section form {
+  width: 300px;
+  display: grid;
+  justify-items: center;
+  gap: 15px;
+}
+
+.left-section form input, .right-section form input {
+  width: 100%;
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--light-grey);
+}
+
+.left-section form button, .right-section form button {
+  width: fit-content;
+  padding: 7px 50px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--yellow);
+  color: var(--white);
+  cursor: pointer;
+}
+
+.left-section form p {
+  text-align: center;
+  color: var(--grey);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.login button:hover {
+  transition: 0.3s;
+  transform: scale(1.05);
+}
+
+.fixed-user, .fixed-library {
+  max-width: 575px;
+  max-height: 625px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fixed-user form, .fixed-library form {
+  display: grid;
+  justify-items: center;
+  gap: 15px;
+  color: var(--white);
+}
+
+.fixed-user form button, .fixed-library form button {
+  margin-top: 10px;
+  width: fit-content;
+  padding: 7px 50px;
+  border: 1px solid var(--white);
+  border-radius: 5px;
+  background-color: transparent;
+  color: var(--white);
+  cursor: pointer;
+}
+
+.fixed-user {
+  left: 50%;
+  border-radius: 25% 25px 25px 25%;
+  transition: 1s;
+  background-color: var(--yellow);
+}
+
+.fixed-library {
+  left: 50%;
+  transform: translateX(-100%);
+  border-radius: 25px 25% 25% 25px;
+  transition: 1s;
+  background-color: var(--yellow-shade);
+  filter: brightness(105%);
+}

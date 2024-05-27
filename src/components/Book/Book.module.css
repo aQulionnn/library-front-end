@@ -1,0 +1,43 @@
+.book:hover {
+  box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.2);
+}
+
+.book {
+  width: 225px;
+  height: 250px;
+  /* border: 1px solid var(--grey); */
+  display: grid;
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: var(--white);
+}
+
+.book picture {
+  display: flex;
+  justify-content: center;
+  width: 225px;
+  height: 250px;
+  
+}
+
+.book img {
+  width: 160px;
+  height: 250px;
+}
+
+
+.mark, .favourite {
+  position: absolute;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.mark:hover {
+  color: var(--yellow);
+}
+
+.favourite {
+  transform: translateY(-5px);
+  
+  color: var(--yellow);
+}
