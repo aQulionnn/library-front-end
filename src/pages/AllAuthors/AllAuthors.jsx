@@ -1,32 +1,48 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import style from './AllAuthors.module.css'
 import Sidebar from '../../components/Sidebar/Sidebar'
 import { useNavigate } from 'react-router-dom'
+import Layout from '../../layout/Layout'
+import { getAllAuthors } from '../../services/authorService'
+
 
 function AllAuthors() {
 
-  const [clicked, setClicked] = useState(false)
+  const [auhtors, setAuhtors] = useState([{}])
+  const [clicked, setClicked] = useState(null)
+  const [search, setSearch] = useState('')
 
   const navigate = useNavigate()
 
-  function open() {
-    if (clicked) setClicked(false)
-    else setClicked(true)
+  function open(id) {
+    if (clicked === id) setClicked(null);
+    else setClicked(id);
   }
 
+  useEffect(() => {
+    const fetch = async () => {
+      const data = await getAllAuthors()
+      setAuhtors(data)
+    }
+
+    fetch()
+  }, [])
+
   return (
-    <div className={style['author']}>
-      <Sidebar />
-      <div className={style['content']}>
-        <div className={!clicked ? style['card'] : style['description']} onClick={open} onDoubleClick={() => navigate('/author')}>
-          <img src="/assets/camus.jpg" alt="" />
-          {clicked && <p>французский писатель и философ, представитель экзистенциализма. 
-            Лауреат Нобелевской премии 
-            по литературе 1957 года.</p>}
-          {!clicked && <p>Альбер Камю</p>}
+    <Layout onChange={(e) => setSearch(e.target.value)}>
+      {auhtors.map((author) => (
+        <div 
+          key={author.id}
+          className={clicked !== author.id ? style['card'] : style['description']} 
+          onClick={() => open(author.id)} 
+          onDoubleClick={() => navigate(`/author/${author.id}`)}
+        >
+          <img src="/assets/authors/camus.jpg" alt="" />
+          {clicked === author.id && <p>{author.information}</p>}
+          {!clicked !== author.id && <p>{author.name}</p>}
         </div>
-      </div>
-    </div>
+      ))}
+    </Layout>
   )
 }
 

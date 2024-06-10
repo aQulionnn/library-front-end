@@ -1,31 +1,32 @@
 import React, { useEffect, useState } from 'react'
 import style from './LibraryPage.module.css'
-import Sidebar from '../../components/Sidebar/Sidebar'
+import Layout from '../../layout/Layout'
 import { getAllLibraries } from '../../services/libraryService'
+import Book from '../../components/Book/Book'
 
 function Library() {
 
-  const [library, setLibrary] = useState([{}])
+  const [libraries, setLibraries] = useState([{}])
+  const [search, setSearch] = useState('')
 
   useEffect(() => {
     const fetch = async() => {
       const data = await getAllLibraries()
-      setLibrary(data)
+      setLibraries(data)
     }
 
     fetch()
   }, [])
 
   return (
-    <div className={style['library']}>
-      <Sidebar />  
-      <div className={style['content']}>
-        <div>
-          <img src="/assets/library.jpg" alt="" />
-          <span>Библиотека</span>
-        </div>
-      </div>
-    </div>
+    <Layout onChange={(e) => setSearch(e.target.value)}>
+      {libraries.map((library) => (
+          <div className={style['content']}>
+            <img src="/assets/library.jpg" alt="" />
+            <span>{library.name}</span>
+          </div>
+        ))}
+    </Layout>
   )
 }
 

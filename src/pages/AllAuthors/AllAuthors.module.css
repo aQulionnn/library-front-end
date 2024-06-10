@@ -1,4 +1,4 @@
-.author {
+/* .author {
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -40,4 +40,48 @@
 .card:hover, .description:hover {
   transform: scale(1.05);
 }
+ */
 
+
+ .author {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
+
+.content {
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 25px 3% 25px 3%;
+}
+
+.card, .description {
+  background-color: var(--white);
+  transition: 1s;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.card {
+  text-align: center;
+  width: 175px;
+  height: 200px;
+}
+
+.description {
+  width: 175px;
+  height: 350px;
+  overflow: hidden;
+}
+
+.card img, .description img {
+  width: 175px;
+  height: 175px;
+  border-radius: 10px;
+}
+
+.card:hover, .description:hover {
+  transform: scale(1.05);
+}

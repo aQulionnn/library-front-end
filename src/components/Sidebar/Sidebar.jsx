@@ -16,24 +16,24 @@ function Sidebar() {
     <div className={style['sidebar']}>
       <div className={style['book']} onClick={() => navigate('/home')}>
         <BookOutlinedIcon />
-        <p>Книги</p>
+        <p>Кітаптар</p>
       </div>
       <div className={style['library']} onClick={() => navigate('/library')}>
         <LocalLibraryOutlinedIcon />
-        <p>Библиотеки</p>
+        <p>Кітапханалар</p>
       </div>
       <div className={style['author']} onClick={() => navigate('/authors')}>
         <PersonOutlineOutlinedIcon />
-        <p>Авторы</p>
+        <p>Авторлар</p>
       </div>
-      <div className={style['genre']}>
+      {/* <div className={style['genre']}>
         <CategoryOutlinedIcon />
-        <p>Жанры</p>
-      </div>
-      <div onClick={() => navigate('/favourites')}>
+        <p>Жанрлар</p>
+      </div> */}
+      {/* <div onClick={() => navigate('/favourites')}>
         <BookmarkBorderOutlinedIcon />
         <p>Избранные</p>
-      </div>
+      </div> */}
       <hr />
       <div className={style['logout']} onClick={() => navigate('/')}>
         <LogoutIcon />

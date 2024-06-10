@@ -3,6 +3,7 @@
 }
 
 .sidebar {
+  position: fixed;
   width: 300px;
   height: 100%;
   display: grid;
@@ -14,6 +15,7 @@
 }
 
 .sidebar > div {
+  /* position: fixed; */
   display: flex;
   align-items: center;
   gap: 5px;
@@ -21,10 +23,11 @@
   border-radius: 5px;
   color: var(--grey);
   cursor: pointer;
-  transition: 0.5s;
+  transition: 0.7s;
 }
 
 .sidebar > div:hover:not(:last-child) {
+  transform: translateX(20px);
   background-color: var(--yellow);
   color: var(--white);
 }
@@ -34,6 +37,7 @@
 }
 
 .logout:hover {
+  transform: translateX(-20px);
   background-color: #FF1B09;
   color: var(--white)
 }

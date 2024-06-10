@@ -1,9 +1,14 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import style from './Admin.module.css'
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
+import LogoutIcon from '@mui/icons-material/Logout'
+import { getBooksByLibrary } from '../../services/bookService';
+import Book from '../../components/Book/Book';
 
 function Admin() {
-
+  const { id } = useParams()
+  const [books, setBooks] = useState([{}])
   const [newBook, setNewBook] = useState({
     name: '',
     description: '',
@@ -11,7 +16,7 @@ function Admin() {
     category: '',
     available: true,
     image: null,
-    libraryId: 3,
+    libraryId: parseInt(id),
   })
 
   const handleChange = (e) => {
@@ -70,17 +75,55 @@ function Admin() {
     }
   };
 
+  useEffect(() => {
+    const fetch = async () => {
+      const data = await getBooksByLibrary(id)
+      setBooks(data)
+    }
+    
+    fetch()
+  }, [])
+
   return (
     <div className={style['admin']}> 
-      <header></header>
-      <form onSubmit={handleSubmit}>
-        <input type="text" name='name' placeholder='Название' onChange={handleChange}/>
-        <input type="text" name='description' placeholder='Описание' onChange={handleChange}/>
-        <input type="text" name='author' placeholder='Автор' onChange={handleChange}/>
-        <input type="text" name='category' placeholder='Жанр' onChange={handleChange}/>
-        <input type="file" name='image' onChange={handleChange}/>
-        <button type='submit'>Создать</button>
-      </form>
+      <header>
+        <h2>Кітапхана басқару жүйесу</h2>
+        <div>
+          <p>Шығу</p>
+          <LogoutIcon />
+        </div>
+      </header>
+      <div className={style['content']}>
+        <div className={style['left']}>
+          <form onSubmit={handleSubmit}>
+            <input type="text" name='name' placeholder='Кітап атауы' onChange={handleChange}/>
+            <input type="text" name='description' placeholder='Сипаттама' onChange={handleChange}/>
+            <select name="" id="">
+              <option value="">Автор</option>
+              <option value="1">Альбер Камю</option>
+              <option value="2">Фридрих Ницше</option>
+              <option value="3">Джордж Оруэл</option>          
+            </select>
+            <select name="" id="">
+              <option value="">Жанр</option>
+              <option value="1">Проза</option>
+              <option value="2">Роман</option>
+              <option value="3">Эссе</option>          
+            </select>
+            <input type="file" name='image' onChange={handleChange}/>
+            <button type='submit'>Құру</button>
+          </form>
+        </div>
+        <div className={style['right']}>
+          {books.map((book) => (
+            <Book 
+              key={book.id}
+              name={book.name}
+              image={book.image}
+            />
+          ))}
+        </div>
+      </div>
     </div>
   )
 }

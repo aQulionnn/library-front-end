@@ -1,21 +1,13 @@
-.library {
-  display: flex;
-  width: 100vw;
-  height: 100vh;
-}
-
 .content {
-  display: flex;
-  padding: 25px;
-}
-
-.content div {
-  aspect-ratio: 16/9;
-  height: 160px;
+  display: grid;
+  width: 280px;
+  height: 200px;
   text-align: center;
 }
 
-.content div img {
-  height: 100%;
-  width: 100%;
+.content img {
+  aspect-ratio: 16/9;
+  height: 160px;
+  border-radius: 10px;
+  cursor: pointer;
 }

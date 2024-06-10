@@ -25,15 +25,15 @@ function Login() {
           <h1>Log In</h1>
           <input type="text" placeholder='Почта' />
           <input type="text" placeholder='Пароль' />
-          <p>Забыли пароль?</p>
-          <button onClick={() => navigate('/admin')}>LOG IN</button>
+          {/* <p>Забыли пароль?</p> */}
+          <button onClick={() => navigate('/admin/1')}>LOG IN</button>
         </form>
       </div>
       <div className={style['right-section']}>
         <form action="">
           <h1>Log In</h1>
           <input type="text" placeholder='Имя' />
-          <input type="text" placeholder='Телефон' />
+          <input type="number" placeholder='Телефон'/>
           <button onClick={() => navigate('/home')}>LOG IN</button>
         </form>
       </div>

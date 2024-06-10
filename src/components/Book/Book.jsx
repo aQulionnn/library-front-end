@@ -19,11 +19,10 @@ function Book(props) {
 
   return (
     <div className={style['book']} key={props.id}>
-      <BookmarkBorderOutlinedIcon className={!mark ? style['mark'] : style['favourite']} onClick={favourite} />
+      {/* <BookmarkBorderOutlinedIcon className={!mark ? style['mark'] : style['favourite']} onClick={favourite} /> */}
       <picture>
-        <img src={"https://localhost:7172/api/Image/" + props.image} alt="" />
+        <img src={"https://localhost:7098/api/Image/" + props.image} alt="" />
       </picture>
-      {/* <span>{props.name}</span> */}
     </div>
   )
 }

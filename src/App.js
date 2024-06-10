@@ -13,11 +13,11 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Login />} />
-          <Route path='/admin' element={<Admin />} />
+          <Route path='/admin/:id' element={<Admin />} />
           <Route path='/home' element={<Home />} />
           <Route path='/library' element={<LibraryPage />} />
           <Route path='/authors' element={<AllAuthors />} />
-          <Route path='/author' element={<Author />} />
+          <Route path='/author/:id' element={<Author />}/>
           <Route path='/favourites' element={<Favoutites />} />
         </Routes>
       </BrowserRouter>

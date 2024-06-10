@@ -2,15 +2,19 @@ import React, { useEffect, useState } from 'react'
 import style from './Author.module.css'
 import Book from '../../components/Book/Book'
 import Sidebar from '../../components/Sidebar/Sidebar'
-import { getAllBooks } from '../../services/bookService'
+import { getBooksByAuthor } from '../../services/bookService'
+import { useParams } from 'react-router-dom'
+import Layout from '../../layout/Layout'
 
 function Author() {
 
+  const { id } = useParams()
   const [books, setBooks] = useState([{}])
+  const [search, setSearch] = useState('')
 
   useEffect(() => {
     const fetch = async () => {
-      const data = await getAllBooks()
+      const data = await getBooksByAuthor(id)
       console.log(data)
       setBooks(data)
     }
@@ -19,18 +23,15 @@ function Author() {
   }, [])
 
   return (
-    <div className={style['author']}>
-      <Sidebar />
-      <div className={style['content']}>
-        {books.filter(book => book.author == 'Альбер Камю').map((book) => (
+    <Layout onChange={(e) => setSearch(e.target.value)}>
+        {books.map((book) => (
           <Book
             key={book.id}
             name={book.name}
             image={book.image}
           />
         ))}
-      </div>
-    </div>
+    </Layout>
   )
 }
 
